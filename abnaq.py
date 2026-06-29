@@ -28,19 +28,32 @@ def imisa_raac_weeyi(tirada_xubnaha:int,tirada_ururkiiba:int)->int:
 # print(imisa_raac_weeyi(12,8))
 
 # Hadaba su'aashu waxa weeyi sidee ayaan u taxaa?
-def raceeye(ururka:list,tirada_raaciiba:int)->list:
+def raceeye_2(ururka:list)->list:
     # kaliya marka tirada_raaciiba==2
     racaysane=[]
     urur=ururka
-    while(len(urur)>=tirada_raaciiba):
+    while(len(urur)>=2):
         last=urur[-1]
-        urur.remove(last)
+        urur=urur[:-1]
         for x in urur:
             raac=str(x)+str(last)
             racaysane.append(raac)
     return racaysane
 
-print(raceeye(ururka=['a','b','c','d'],tirada_raaciiba=2))
+def raceeye_3(ururka: list)->dict:
+    # kaliya marka tirada raaciiba ay tahay 3
+    racaysane=[]
+    urur=ururka
+    while(len(urur)>=3):
+        last=urur[-1]
+        urur=urur[:-1]
+        uracee_2=raceeye_2(ururka=urur)
+        for x in uracee_2:
+            raac=str(x)+str(last)
+            racaysane.append(raac)
+    return {'racaynta':racaysane,'dhererka':imisa_raac_weeyi(tirada_xubnaha=len(ururka),tirada_ururkiiba=3),"ama":len(racaysane)}
+
+print(raceeye_3(ururka=['a','b','c','d','e','f','g','h','i','j','k','l']))
 
     
 
